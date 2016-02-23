@@ -1,6 +1,6 @@
 # Ceph-deploy Installation
 
-以 deploy 方式安裝共需四個節點，各自功用分別如下所示
+以 deploy 方式安裝共需四個節點，各自功用分別如下表所示
 
 | 節點名稱 |          用途         |      IP       |
 |:--------:|:---------------------:|:-------------:|
@@ -9,6 +9,7 @@
 |   OSD1   | object storage daemon | 172.24.12.103 |
 |   OSD2   | object storage daemon | 172.24.12.104 |
 
+雖然官方推薦的 Ceph 最小節點配置數量為 3+2，也就是 3 個 mon + 2 個 OSD，但以練習為目的的話以 1+2 的架構便已足夠。
 
 ```
 $ wget -q -O- 'https://download.ceph.com/keys/release.asc' | sudo apt-key add -
