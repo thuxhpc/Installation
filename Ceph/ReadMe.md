@@ -13,9 +13,7 @@
 
 ----
 
-#####安裝過程中主要是透過 admin node 以 deploy 方式安裝其他節點所需套件，故首先須先設定好 admin 與各節點的 SSH 相關設定。
-
-----
+##### 安裝過程中主要是透過 admin node 以 deploy 方式安裝其他節點所需套件，故首先須先設定好 admin 與各節點的 SSH 相關設定。
 
 ```
 $ wget -q -O- 'https://download.ceph.com/keys/release.asc' | sudo apt-key add -
