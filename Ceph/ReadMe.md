@@ -24,7 +24,7 @@ $ wget -q -O- 'https://download.ceph.com/keys/release.asc' | sudo apt-key add -
 $ echo deb http://download.ceph.com/debian-{ceph-stable-release}/ $(lsb_release -sc) main \
   | sudo tee /etc/apt/sources.list.d/ceph.list
 ```
-<span>&nbsp&nbsp&nbsp&nbsp將 {ceph-stable-release} 更改為需安裝之版本</span>
+<span>&nbsp;&nbsp;&nbsp;&nbsp;將 {ceph-stable-release} 更改為需安裝之版本</span>
 
 
 ```
