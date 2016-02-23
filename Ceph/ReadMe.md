@@ -26,7 +26,7 @@ $ echo deb http://download.ceph.com/debian-{ceph-stable-release}/ $(lsb_release 
 ```
 <span>&nbsp;&nbsp;&nbsp;&nbsp;將 {ceph-stable-release} 更改為需安裝之版本</span>
 
-<span>* 將 {ceph-stable-release} 更改為需安裝之版本</span>
+* 將 {ceph-stable-release} 更改為需安裝之版本
 
 ```
 $ sudo apt-get update && sudo apt-get install ceph-deploy
