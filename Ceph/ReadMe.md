@@ -4,10 +4,10 @@
 
 | 節點名稱 |          用途         |      IP       |
 |:--------:|:---------------------:|:-------------:|
-|   admin  | ceph-deploy           | 172.24.12.102 |
-|    mon   | monitor               | 172.24.12.103 |
-|   OSD1   | object storage daemon | 172.24.12.104 |
-|   OSD2   | object storage daemon | 172.24.12.105 |
+|   admin  | ceph-deploy           | 172.24.12.105 |
+|    mon   | monitor               | 172.24.12.102 |
+|   OSD1   | object storage daemon | 172.24.12.103 |
+|   OSD2   | object storage daemon | 172.24.12.104 |
 
 
 ```
