@@ -44,6 +44,33 @@ $ sudo apt-get update && sudo apt-get install ceph-deploy
 $ sudo useradd -d /home/{username} -m {username}
 $ sudo passwd {username}
 ```
+  > 將 {username} 更改為自訂的使用者帳戶名稱。
+
+* 為此用戶增加 root 權限
+```
+$ echo "{username} ALL = (root) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/{username}
+$ sudo chmod 0440 /etc/sudoers.d/{username}
+```
+
+* 安裝 SSH 服務
+```
+$ sudo apt-get install openssh-server
+```
+
+* 建立 ssh-keygen
+```
+$ ssh-keygen
+```
+
+
+
+
+
+
+
+
+
+
 
 
 
