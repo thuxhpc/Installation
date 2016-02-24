@@ -57,6 +57,8 @@ $ sudo chmod 0440 /etc/sudoers.d/{username}
 $ sudo apt-get install openssh-server
 ```
 
+------
+##### **✱ admin node**
 * 建立 ssh-keygen
 ```
 $ ssh-keygen
