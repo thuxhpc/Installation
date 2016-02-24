@@ -29,7 +29,7 @@ $ wget -q -O- 'https://download.ceph.com/keys/release.asc' | sudo apt-key add -
 $ echo deb http://download.ceph.com/debian-{ceph-stable-release}/ $(lsb_release -sc) main \
   | sudo tee /etc/apt/sources.list.d/ceph.list
 ```
-  > 將 {ceph-stable-release} 更改為需安裝之版本，本次安裝使用版本為 HAMMER。
+> 將 {ceph-stable-release} 更改為需安裝之版本，本次安裝使用版本為 HAMMER。
 
 * 更新並開始安裝 ceph-deploy
 ```
@@ -44,7 +44,7 @@ $ sudo apt-get update && sudo apt-get install ceph-deploy
 $ sudo useradd -d /home/{username} -m {username}
 $ sudo passwd {username}
 ```
-  > 將 {username} 更改為自訂的使用者帳戶名稱。
+> 將 {username} 更改為自訂的使用者帳戶名稱。
 
 * 為此用戶增加 root 權限
 ```
@@ -63,12 +63,28 @@ $ sudo apt-get install openssh-server
 ```
 $ ssh-keygen
 ```
+> 過程選項可直接 enter
 
+* 將公鑰複製到其他節點上做認證使用
+```
+$ ssh-copy-id {username}@{nodeIP}
+```
 
-
-
-
-
+* 修改設定
+```
+$ vim ~/.ssh/config
+```
+```vim
+  Host mon
+     Hostname mon
+     User {username}
+  Host OSD1
+     Hostname OSD1
+     User {username}
+  Host OSD2
+     Hostname OSD2
+     User {username}
+```
 
 
 
