@@ -34,6 +34,9 @@ $ echo deb http://download.ceph.com/debian-{ceph-stable-release}/ $(lsb_release 
 $ sudo apt-get update && sudo apt-get install ceph-deploy
 ```
 
+----
 
+
+====
 
 
