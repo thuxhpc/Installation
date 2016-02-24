@@ -15,6 +15,8 @@
 
 ##### 安裝過程中主要是透過 admin node 以 deploy 方式安裝其他節點所需套件，故首先須於 admon node 安裝 ceph-deploy 套件，並設定好 admin 與各節點的 SSH 相關設定。
 
+
+------
 ##### **✱ admin node**
 
 * 下載 realase key
@@ -34,9 +36,15 @@ $ echo deb http://download.ceph.com/debian-{ceph-stable-release}/ $(lsb_release 
 $ sudo apt-get update && sudo apt-get install ceph-deploy
 ```
 
-----
+------
+##### **✱ mon and OSD nodes**
+
+* 在每個節點上新增一個帳戶
+```
+$ sudo useradd -d /home/{username} -m {username}
+$ sudo passwd {username}
+```
 
 
-====
 
 
