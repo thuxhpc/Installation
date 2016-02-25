@@ -5,7 +5,7 @@
 | 節點名稱 |          用途         |      IP       |
 |:--------:|:---------------------:|:-------------:|
 |   admin  | ceph-deploy           | 172.24.12.105 |
-|    mon   | monitor               | 172.24.12.102 |
+|  monitor | monitor               | 172.24.12.102 |
 |   OSD1   | object storage daemon | 172.24.12.103 |
 |   OSD2   | object storage daemon | 172.24.12.104 |
 
@@ -39,7 +39,7 @@ $ sudo apt-get update && sudo apt-get install ceph-deploy
 ```
 
 ------
-##### **✱ mon and OSD nodes**
+##### **✱ monitor and OSD nodes**
 
 * 在每個節點上新增一個帳戶
 ```
@@ -77,8 +77,8 @@ $ ssh-copy-id {username}@{nodeIP}
 $ vim ~/.ssh/config
 ```
 ```vim
-  Host mon
-     Hostname mon
+  Host monitor
+     Hostname monitor
      User {username}
   Host OSD1
      Hostname OSD1
