@@ -19,6 +19,26 @@
 
 
 ------
+##### **✱ all node**
+
+* DNS 設定
+```
+$ sudo vim /etc/hosts
+```
+```vim
+monitor 172.24.12.202
+OSD1    172.24.12.203
+OSD2    172.24.12.204
+admin   172.24.12.205
+```
+
+* 更新並安裝套件
+```
+$ sudo apt-get update && sudo apt-get upgrade
+$ sudo apt-get install ntp openssh-server
+```
+
+------
 ##### **✱ admin node**
 
 * 下載 realase key
