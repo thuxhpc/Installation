@@ -89,14 +89,16 @@ $ vim ~/.ssh/config
 * 下載 realase key
 ```
 $ wget -q -O- 'https://download.ceph.com/keys/release.asc' | sudo apt-key add -
+$ wget -q -O- 'https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc' | sudo apt-key add -
 ```
 
 * 新增 Ceph packages 至 repository
 ```
 $ echo deb http://download.ceph.com/debian-{ceph-stable-release}/ $(lsb_release -sc) main \
   | sudo tee /etc/apt/sources.list.d/ceph.list
+$ echo deb http://ceph.com/debian-{ceph-stable-release}/ $(lsb_release -sc) main | sudo tee /etc/apt/sources.list.d/ceph.list
 ```
-> 將 {ceph-stable-release} 更改為需安裝之版本，本次安裝使用版本為 hammer。
+> 將 {ceph-stable-release} 更改為需安裝之版本，如 firefly, hammer。
 
 * 更新並開始安裝 ceph-deploy
 ```
