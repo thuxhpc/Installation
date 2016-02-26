@@ -166,7 +166,10 @@ $ ceph health
 ```
 > 出現 HEALTH_OK 代表 cluster 運作正常
 
-
+* 檢視群集狀態
+```
+$ ceph -w
+```
 
 
 
