@@ -72,8 +72,8 @@ $ ssh-copy-id {username}@{nodeIP}
 $ vim ~/.ssh/config
 ```
 ```vim
-  Host monitor
-     Hostname monitor
+  Host MON1
+     Hostname MON1
      User {username}
   Host OSD1
      Hostname OSD1
@@ -107,6 +107,38 @@ $ sudo apt-get update && sudo apt-get install ceph-deploy
 ======
 
 #### Storage Cluster Quick Start
+
+* 新增目錄
+```
+$ mkdir ~/ceph && cd ~/ceph
+```
+
+* 建立 Cluster
+```
+$ ceph-deploy new {mon-nodes}
+```
+> 將 {mon} 改為主要 monitor 節點，如 MON1
+
+* 修改設定
+```
+$ vim ceph.conf
+```
+```
+osd pool default size = 2
+```
+
+* 安裝 ceph 套件
+```
+ceph-deploy install {deploy-node} {mon-nodes} {osd-nodes}
+```
+
+* 建立 monitor 並將所有密鑰複製到工作目錄
+```
+$ ceph-deploy mon create-initial
+```
+
+
+
 
 
 
