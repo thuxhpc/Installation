@@ -74,11 +74,6 @@ $ echo "{username} ALL = (root) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/{usernam
 $ sudo chmod 0440 /etc/sudoers.d/{username}
 ```
 
-* 安裝 SSH 服務
-```
-$ sudo apt-get install openssh-server
-```
-
 ------
 ##### **✱ admin node**
 * 建立 ssh-keygen
