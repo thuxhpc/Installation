@@ -134,6 +134,39 @@ ceph-deploy install {deploy-node} {mon-nodes} {osd-nodes}
 $ ceph-deploy mon create-initial
 ```
 
+* 於 OSD 新增儲存位置
+```
+$ ssh {OSD-node1}
+$ sudo mkdir /var/local/osd0
+$ exit
+
+$ ssh {OSD-node2}
+$ sudo mkdir /var/local/osd1
+$ exit
+```
+
+* 啟動 OSD
+```
+$ ceph-deploy osd prepare {OSD-node1}:/var/local/osd0 {OSD-node2}:/var/local/osd1
+$ ceph-deploy osd activate {OSD-node1}:/var/local/osd0 {OSD-node2}:/var/local/osd1
+```
+
+* 複製配置文件和管理密鑰到所有節點以便使用Ceph CLI
+```
+$ ceph-deploy admin {all nodes}
+```
+
+* 修改權限
+```
+$ sudo chmod +r /etc/ceph/ceph.client.admin.keyring
+```
+
+* 確認狀態
+```
+$ ceph health
+```
+> 出現 HEALTH_OK 代表 cluster 運作正常
+
 
 
 
