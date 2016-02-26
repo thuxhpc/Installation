@@ -51,7 +51,7 @@ $ wget -q -O- 'https://download.ceph.com/keys/release.asc' | sudo apt-key add -
 $ echo deb http://download.ceph.com/debian-{ceph-stable-release}/ $(lsb_release -sc) main \
   | sudo tee /etc/apt/sources.list.d/ceph.list
 ```
-> 將 {ceph-stable-release} 更改為需安裝之版本，本次安裝使用版本為 Hammer。
+> 將 {ceph-stable-release} 更改為需安裝之版本，本次安裝使用版本為 hammer。
 
 * 更新並開始安裝 ceph-deploy
 ```
