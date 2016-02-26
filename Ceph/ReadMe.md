@@ -120,10 +120,7 @@ $ ceph-deploy new {mon-nodes}
 
 * 修改設定
 ```
-$ vim ceph.conf
-```
-```
-osd pool default size = 2
+$ sed -i '$a osd pool default size = 2' ceph.conf
 ```
 
 * 安裝 ceph 套件
