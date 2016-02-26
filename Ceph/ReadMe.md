@@ -4,10 +4,10 @@
 
 | 節點名稱 |          用途         |      IP       |
 |:--------:|:---------------------:|:-------------:|
-|   admin  | ceph-deploy           | 172.24.12.105 |
-|  monitor | monitor               | 172.24.12.102 |
-|   OSD1   | object storage daemon | 172.24.12.103 |
-|   OSD2   | object storage daemon | 172.24.12.104 |
+|  deploy  | ceph-deploy           | 172.24.12.110 |
+|   MON1   | monitor               | 172.24.12.111 |
+|   OSD1   | object storage daemon | 172.24.12.112 |
+|   OSD2   | object storage daemon | 172.24.12.113 |
 
 *官方推薦的 Ceph 最小節點配置數量為 3+2，也就是 3 個 mon + 2 個 OSD，但以練習為目的的話以 1+2 的架構便已足夠。*
 
@@ -26,10 +26,10 @@
 $ sudo vim /etc/hosts
 ```
 ```vim
-monitor 172.24.12.102
-OSD1    172.24.12.103
-OSD2    172.24.12.104
-admin   172.24.12.105
+deploy  172.24.12.110
+MON1    172.24.12.111
+OSD1    172.24.12.112
+OSD2    172.24.12.113
 ```
 
 * 更新並安裝套件
@@ -39,7 +39,7 @@ $ sudo apt-get install ntp openssh-server
 ```
 
 ------
-##### **✱ admin node**
+##### **✱ deploy node**
 
 * 下載 realase key
 ```
@@ -59,7 +59,7 @@ $ sudo apt-get update && sudo apt-get install ceph-deploy
 ```
 
 ------
-##### **✱ monitor and OSD nodes**
+##### **✱ MON and OSD nodes**
 
 * 在每個節點上新增一個帳戶
 ```
@@ -75,7 +75,7 @@ $ sudo chmod 0440 /etc/sudoers.d/{username}
 ```
 
 ------
-##### **✱ admin node**
+##### **✱ deploy node**
 * 建立 ssh-keygen
 ```
 $ ssh-keygen
