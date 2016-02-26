@@ -170,7 +170,7 @@ $ ceph health
 ```
 $ ceph -w
 ```
-
+> 以 ctrl + c 退出
 
 
 
