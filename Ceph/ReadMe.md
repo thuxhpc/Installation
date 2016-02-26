@@ -39,26 +39,6 @@ $ sudo apt-get install ntp openssh-server
 ```
 
 ------
-##### **✱ deploy node**
-
-* 下載 realase key
-```
-$ wget -q -O- 'https://download.ceph.com/keys/release.asc' | sudo apt-key add -
-```
-
-* 新增 Ceph packages 至 repository
-```
-$ echo deb http://download.ceph.com/debian-{ceph-stable-release}/ $(lsb_release -sc) main \
-  | sudo tee /etc/apt/sources.list.d/ceph.list
-```
-> 將 {ceph-stable-release} 更改為需安裝之版本，本次安裝使用版本為 hammer。
-
-* 更新並開始安裝 ceph-deploy
-```
-$ sudo apt-get update && sudo apt-get install ceph-deploy
-```
-
-------
 ##### **✱ MON and OSD nodes**
 
 * 在每個節點上新增一個帳戶
@@ -101,6 +81,26 @@ $ vim ~/.ssh/config
   Host OSD2
      Hostname OSD2
      User {username}
+```
+
+------
+##### **✱ deploy node**
+
+* 下載 realase key
+```
+$ wget -q -O- 'https://download.ceph.com/keys/release.asc' | sudo apt-key add -
+```
+
+* 新增 Ceph packages 至 repository
+```
+$ echo deb http://download.ceph.com/debian-{ceph-stable-release}/ $(lsb_release -sc) main \
+  | sudo tee /etc/apt/sources.list.d/ceph.list
+```
+> 將 {ceph-stable-release} 更改為需安裝之版本，本次安裝使用版本為 hammer。
+
+* 更新並開始安裝 ceph-deploy
+```
+$ sudo apt-get update && sudo apt-get install ceph-deploy
 ```
 ======
 
