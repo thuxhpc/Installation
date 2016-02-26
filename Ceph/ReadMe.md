@@ -9,6 +9,8 @@
 |   OSD1   | object storage daemon | 172.24.12.112 |
 |   OSD2   | object storage daemon | 172.24.12.113 |
 
+安裝環境：Ubuntu 14.04.3 LTS
+
 *官方推薦的 Ceph 最小節點配置數量為 3+2，也就是 3 個 mon + 2 個 OSD，但以練習為目的的話以 1+2 的架構便已足夠。*
 
 ======
