@@ -45,9 +45,9 @@ scp -r ~/.ssh node2:~/
 
 ```
 cd ~
-wget http://apache.stu.edu.tw/hadoop/common/hadoop-2.7.1/hadoop-2.7.1-src.tar.gz
-tar zxf hadoop-2.7.1-src.tar.gz
-mv hadoop-2.7.1-src hadoop
+wget http://apache.stu.edu.tw/hadoop/common/hadoop-2.7.1/hadoop-2.7.1.tar.gz
+tar zxf hadoop-2.7.1.tar.gz
+mv hadoop-2.7.1 hadoop
 ```
 新增環境變數
 
