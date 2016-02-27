@@ -1,6 +1,18 @@
 # Hadoop 2.7.1 安裝
 # 123456
-
+```json
+   // code for coloring
+```
+```html
+   // code for coloring
+```
+```js
+   // code for coloring
+```
+```css
+   // code for coloring
+```
+// etc.
 ## 安裝環境
  OS: `Ubnutu 14.04.1LTS`
  
