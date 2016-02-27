@@ -1,18 +1,6 @@
 # Hadoop 2.7.1 安裝
 # 123456
-```json
-   // code for coloring
-```
-```html
-   // code for coloring
-```
-```js
-   // code for coloring
-```
-```css
-   // code for coloring
-```
-// etc.
+
 ## 安裝環境
  OS: `Ubnutu 14.04.1LTS`
  
@@ -90,7 +78,7 @@ export YARN_HOME=$HADOOP_INSTALL
 ```
 <property>
    <name>fs.default.name</name>
-   <value>hdfs://master:9000</value>
+   <value>hdfs://<hr>master<hr>:9000</value>
 </property>
 ```
 
