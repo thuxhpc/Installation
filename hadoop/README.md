@@ -45,7 +45,7 @@ scp -r ~/.ssh node2:~/
 
 ```
 cd ~
-wget http://apache.stu.edu.tw/hadoop/common/stable2/hadoop-2.7.1.tar.gz
+wget http://apache.stu.edu.tw/hadoop/common/hadoop-2.7.1/hadoop-2.7.1-src.tar.gz
 tar zxf hadoop-2.7.1.tar.gz
 mv hadoop-2.7.1 hadoop
 ```
