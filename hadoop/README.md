@@ -78,7 +78,7 @@ export YARN_HOME=$HADOOP_INSTALL
 ```
 <property>
    <name>fs.default.name</name>
-   <value>hdfs://<hr>master<hr>:9000</value>
+   <value>hdfs://master:9000</value>
 </property>
 ```
 
