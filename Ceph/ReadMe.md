@@ -43,7 +43,7 @@ $ sudo apt-get install ntp openssh-server
 ------
 ##### **✱ MON and OSD nodes**
 
-* 在每個節點上新增一個帳戶
+* 在每個節點上新增一個帳戶(包含deploy)
 ```
 $ sudo useradd -d /home/{username} -m {username}
 $ sudo passwd {username}
