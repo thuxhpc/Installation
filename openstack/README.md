@@ -9,9 +9,9 @@
 $ sudo vim /etc/hosts
 ```
 ```vim
-controller   172.24.12.105
-compute01    172.24.12.106
-compute02    172.24.12.107
+172.24.12.105  controller
+172.24.12.106  compute01
+172.24.12.107  compute02
 ```
 
 * 更新並安裝套件
