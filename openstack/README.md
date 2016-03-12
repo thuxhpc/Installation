@@ -11,7 +11,6 @@ $ sudo vim /etc/hosts
 ```vim
 172.24.12.105  controller
 172.24.12.106  compute01
-172.24.12.107  compute02
 ```
 
 * 更新並安裝套件
@@ -52,9 +51,6 @@ ssh-copy-id {USERNAME}@{NODE_IP}
 vim ~/.ssh/config
 ```
 ```
-Host {COMPUTE_HOSTNAME}
-   Hostname {COMPUTE_HOSTNAME}
-   User {USERNAME}
 Host {COMPUTE_HOSTNAME}
    Hostname {COMPUTE_HOSTNAME}
    User {USERNAME}
