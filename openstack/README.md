@@ -79,6 +79,7 @@ $ sudo su
 # sh Setup.sh
 ```
 > 安裝後需輸入節點IP，設定各項服務密碼，以及 compute node 的對外與橋接網卡名稱
+
 ------
 
 * 驗證
