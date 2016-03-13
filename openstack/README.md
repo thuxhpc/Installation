@@ -20,7 +20,7 @@ $ sudo apt-get install ntp openssh-server
 ```
 
 ------
-##### **✱ On Compute nodes **
+##### **✱ On Compute node**
 
 * 在節點上新增一個帳戶
 ```
@@ -35,7 +35,7 @@ sudo chmod 0440 /etc/sudoers.d/{USERNAME}
 ```
 
 ------
-##### **✱ On Controller nodes **
+##### **✱ On Controller node**
 
 * 建立 ssh-keygen
 ```
