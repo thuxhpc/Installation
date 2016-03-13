@@ -34,6 +34,7 @@ echo "{USERNAME} ALL = (root) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/{USERNAME}
 sudo chmod 0440 /etc/sudoers.d/{USERNAME}
 ```
 
+------
 ##### **✱ On Controller nodes **
 
 * 建立 ssh-keygen
@@ -55,3 +56,7 @@ Host {COMPUTE_HOSTNAME}
    Hostname {COMPUTE_HOSTNAME}
    User {USERNAME}
 ```
+
+------
+
+https://www.dropbox.com/s/y1402bdty18y9rx/kilo-20160313.tar?dl=0
