@@ -58,5 +58,30 @@ Host {COMPUTE_HOSTNAME}
 ```
 
 ------
+* 切換 root 身分
+```
+sudo su
+```
 
-https://www.dropbox.com/s/y1402bdty18y9rx/kilo-20160313.tar?dl=0
+* 下載 Script
+```
+wget https://www.dropbox.com/s/y1402bdty18y9rx/kilo-20160313.tar
+```
+
+* 解壓縮並進入資料夾
+```
+tar xvf kilo-20160313.tar && cd kilo-20160313
+```
+
+* 開始安裝
+```
+sh Setup.sh
+```
+> 安裝後需輸入節點IP，設定各項服務密碼，以及 compute node 的對外與橋接網卡名稱
+------
+
+* 驗證
+```
+http://{CONTROLLER_IP}/horizon/
+```
+> 前往網站驗證各項服務
