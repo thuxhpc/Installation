@@ -34,7 +34,7 @@ hadoop fs -mkdir /tmp
 Hive進行管理的資料目錄
 hadoop fs -mkdir /user/warehouse
 hadoop fs -chmod 777 /tmp
-hadoop fs -chnow 777 /user/hive/warehouse
+hadoop fs -chown 777 /user/warehouse
 ```
 
 安裝`libmysql-java`，用`JDBC`時需用到。
