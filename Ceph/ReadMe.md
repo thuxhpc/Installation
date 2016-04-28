@@ -45,8 +45,9 @@ $ sudo apt-get install ntp openssh-server
 
 * 在每個節點上新增一個帳戶(包含deploy)
 ```
-$ sudo useradd -d /home/{username} -m {username}
-$ sudo passwd {username}
+$ sudo addgroup {groupname}
+$ sudo adduser --ingroup {groupname} {username}
+$ sudo adduser {username} sudo
 ```
 > 將 {username} 更改為自訂的使用者帳戶名稱。
 
