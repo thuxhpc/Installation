@@ -172,6 +172,9 @@ $ ceph health
 $ ceph status
 ```
 
+------
+##### **✱ Storing/Retrieving Object Data**
+
 * 檢視現有的 pool
 ```
 $ ceph osd pool ls
@@ -187,5 +190,12 @@ $ rados put {fileName} {filePath} --pool={poolName}
 $ rados -p {poolName} ls
 ```
 
+* 檢視檔案位置
+```
+$ ceph osd map {poolName} {fileName}
+```
 
-
+* 刪除檔案
+```
+$ rados rm {fileName} --pool={poolName}
+```
