@@ -167,13 +167,25 @@ $ ceph health
 ```
 > 出現 HEALTH_OK 代表 cluster 運作正常
 
-* 檢視群集狀態
+* 檢視叢集狀態
 ```
-$ ceph -w
+$ ceph status
 ```
-> 以 ctrl + c 退出
 
+* 檢視現有的 pool
+```
+$ ceph osd pool ls
+```
 
+* 上傳檔案
+```
+$ rados put {fileName} {filePath} --pool={poolName}
+```
+
+* 檢視檔案
+```
+$ rados -p {poolName} ls
+```
 
 
 
