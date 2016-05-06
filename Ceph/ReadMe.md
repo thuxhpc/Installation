@@ -184,6 +184,7 @@ $ ceph osd pool ls
 ```
 $ rados put {fileName} {filePath} --pool={poolName}
 ```
+> 可使用 $ man rados 查看用法
 
 * 檢視檔案
 ```
