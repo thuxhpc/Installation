@@ -36,8 +36,8 @@ $ sudo vim /etc/hosts
 
 * 更新並安裝套件
 ```
-$ sudo apt-get update && sudo apt-get upgrade
-$ sudo apt-get install ntp openssh-server
+$ sudo apt-get update && sudo apt-get -y upgrade
+$ sudo apt-get install -y ntp openssh-server
 ```
 
 ------
