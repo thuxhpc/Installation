@@ -179,6 +179,7 @@ $ ceph status
 $ ceph osd ls
 $ ceph osd tree
 ```
+> 可以看到每個 osd 的 id 以及 所占權重等等資訊
 
 ------
 ##### **✱ Storing/Retrieving Object Data**
