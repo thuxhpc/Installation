@@ -174,6 +174,12 @@ $ ceph health
 $ ceph status
 ```
 
+* 檢視 osd 清單
+```
+$ ceph osd ls
+$ ceph osd tree
+```
+
 ------
 ##### **✱ Storing/Retrieving Object Data**
 
