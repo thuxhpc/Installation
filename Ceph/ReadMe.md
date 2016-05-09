@@ -138,10 +138,12 @@ $ ceph-deploy mon create-initial
 ```
 $ ssh {OSD-node1}
 $ sudo mkdir /var/local/osd0
+$ sudo chown ceph:ceph /var/local/osd0
 $ exit
 
 $ ssh {OSD-node2}
 $ sudo mkdir /var/local/osd1
+$ sudo chown ceph:ceph /var/local/osd1
 $ exit
 ```
 
