@@ -127,8 +127,9 @@ $ sed -i '$a osd pool default size = 2' ceph.conf
 
 * 安裝 ceph 套件
 ```
-ceph-deploy install {deploy-node} {mon-nodes} {osd-nodes}
+ceph-deploy install --release {ceph-stable-release} {deploy-node} {mon-nodes} {osd-nodes}
 ```
+> 將 {ceph-stable-release} 更改為需安裝之版本。
 
 * 建立 monitor 並將所有密鑰複製到工作目錄
 ```
