@@ -102,7 +102,7 @@ $ echo deb http://ceph.com/debian-{ceph-stable-release}/ $(lsb_release -sc) main
 
 * 更新並開始安裝 ceph-deploy
 ```
-$ sudo apt-get update && sudo apt-get install ceph-deploy
+$ sudo apt-get update && sudo apt-get install -y ceph-deploy
 ```
 ======
 
