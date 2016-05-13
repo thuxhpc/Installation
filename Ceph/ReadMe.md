@@ -98,7 +98,8 @@ $ wget -q -O- 'https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc'
 ```
 $ echo deb http://ceph.com/debian-{ceph-stable-release}/ $(lsb_release -sc) main | sudo tee /etc/apt/sources.list.d/ceph.list
 ```
-> 將 {ceph-stable-release} 更改為需安裝之版本，如 firefly, hammer。[參考](http://docs.ceph.com/docs/master/releases/)
+> 將 {ceph-stable-release} 更改為需安裝之版本，如 firefly, hammer。
+> 可參考 [ceph releases]。(http://docs.ceph.com/docs/master/releases/)
 
 * 更新並開始安裝 ceph-deploy
 ```
