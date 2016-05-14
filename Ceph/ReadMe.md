@@ -213,7 +213,7 @@ $ rados rm {fileName} --pool={poolName}
 ```
 
 ------
-##### **✱ Object Gateway Install **
+##### **✱ Storing/Retrieving Object Data**
 
 * 安裝 ceph object gateway
 ```
