@@ -211,3 +211,18 @@ $ ceph osd map {poolName} {fileName}
 ```
 $ rados rm {fileName} --pool={poolName}
 ```
+
+------
+##### **✱ Object Gateway Install **
+
+* 安裝 ceph object gateway
+```
+ceph-deploy install --release infernalis --rgw {CEPH-GATEWAY}
+```
+> 可以直接裝在 mon 上，或直接新增一個獨立的 gateway node。
+
+* 建立 ceph object gateway instance
+```
+ceph-deploy rgw create {CEPH-GATEWAY}
+```
+> 驗證 http://CEPH-GATEWAY:7480，有則代表安裝成功
