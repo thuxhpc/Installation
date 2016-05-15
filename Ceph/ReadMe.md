@@ -334,6 +334,6 @@ $ python s3test.py
 
 =====
 
-*API 參考網站*
-*http://docs.ceph.com/docs/master/radosgw/s3/python/*
-*http://boto.cloudhackers.com/en/latest/s3_tut.html*
+> API 參考網站  
+> http://docs.ceph.com/docs/master/radosgw/s3/python/  
+> http://boto.cloudhackers.com/en/latest/s3_tut.html  
