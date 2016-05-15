@@ -330,5 +330,4 @@ for bucket in conn.get_all_buckets():
 ```
 $ python s3test.py
 ```
-> 出現 my-new-bucket 2015-02-16T17:09:10.000Z 代表測試成功
-
+> 出現 my-new-bucket 2016-05-15T06:25:24.000Z 代表成功。
