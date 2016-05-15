@@ -184,7 +184,7 @@ $ ceph osd tree
 > 可以看到每個 OSD 的 ID 以及 weight 等等資訊
 
 ------
-##### Operating Object Data
+#### Operating Object Data
 
 * 檢視現有的 pool
 ```
@@ -219,7 +219,7 @@ $ rados rm {fileName} --pool={poolName}
 ```
 
 ------
-##### Adding/Removing OSDs
+#### Adding/Removing OSDs
 
 * 建立 osd
 ```
