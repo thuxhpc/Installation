@@ -221,6 +221,8 @@ $ rados rm {fileName} --pool={poolName}
 ------
 #### Adding/Removing OSDs
 
+##### Adding OSDs
+
 * 建立 osd
 ```
 $ ceph osd create [{uuid}]
@@ -239,6 +241,9 @@ $ sudo start ceph-osd id={osd-num}
 ```
 
 ======
+
+
+##### Removing OSDs
 
 * 將 osd 移出叢集
 ```
@@ -268,7 +273,7 @@ $ ceph osd rm {osd-num}
 ```
 
 ------
-# Ceph Object Gateway
+# Ceph Object Gateway Installation
 
 *Ceph RGW 可單獨為一獨立的節點。*
 
@@ -282,16 +287,47 @@ ceph-deploy install --release infernalis --rgw {CEPH-GATEWAY}
 ```
 ceph-deploy rgw create {CEPH-GATEWAY}
 ```
-> 驗證 http://CEPH-GATEWAY:7480，有則代表安裝成功
+> 前往 http://CEPH-GATEWAY:7480，有畫面則代表安裝成功
 
+##### 驗證安裝
 
+* 建立使用者
+```
+$ sudo radosgw-admin user create --uid="cephuser" --display-name="First User"
+```
+> 記住產生的 access_key 與 secret_key。
 
+* 安裝 python-boto
+```
+$ sudo apt-get install -y python-boto
+```
 
+* 建立 api 測試程式
+```
+$ vim s3test.py
+```
+```
+import boto
+import boto.s3.connection
+access_key = '{YOUR_ACCESS_KEY}'
+secret_key = '{YOUR_SECRET_KEY}'
+conn = boto.connect_s3(
+aws_access_key_id = access_key,
+aws_secret_access_key = secret_key,
+host = '{YOUR_GATEWAY_HOST}',
+port = 7480,
+is_secure=False,
+calling_format = boto.s3.connection.OrdinaryCallingFormat(),
+)
+bucket = conn.create_bucket('my-new-bucket')
+for bucket in conn.get_all_buckets():
+  print "{name}\t{created}".format(name = bucket.name,created = bucket.creation_date)
+```
+> 修改 {YOUR_ACCESS_KEY}、{YOUR_SECRET_KEY}、{YOUR_GATEWAY_HOST}。
 
-
-
-
-
-
-
+* 執行測試程式
+```
+$ python s3test.py
+```
+> 出現 my-new-bucket 2015-02-16T17:09:10.000Z 代表測試成功
 
