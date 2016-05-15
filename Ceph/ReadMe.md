@@ -331,3 +331,9 @@ for bucket in conn.get_all_buckets():
 $ python s3test.py
 ```
 > 出現 my-new-bucket 2016-05-15T06:25:24.000Z 代表成功。
+
+=====
+
+> API 參考網站
+> http://docs.ceph.com/docs/master/radosgw/s3/python/
+> http://boto.cloudhackers.com/en/latest/s3_tut.html
