@@ -184,7 +184,7 @@ $ ceph osd tree
 > 可以看到每個 OSD 的 ID 以及 weight 等等資訊
 
 ------
-##### **✱ Storing/Retrieving Object Data**
+#### Storing/Retrieving Object Data
 
 * 檢視現有的 pool
 ```
@@ -219,7 +219,7 @@ $ rados rm {fileName} --pool={poolName}
 ```
 
 ------
-##### **✱ Adding OSDs**
+##### Adding/Removing OSDs
 
 * 建立 osd
 ```
@@ -238,8 +238,7 @@ $ exit
 $ sudo start ceph-osd id={osd-num}
 ```
 
-------
-##### **✱ Removing OSDs**
+======
 
 * 將 osd 移出叢集
 ```
@@ -269,7 +268,7 @@ $ ceph osd rm {osd-num}
 ```
 
 ------
-##### **✱ Ceph Object Gateway**
+##### Ceph Object Gateway
 
 *Ceph RGW 可單獨為一獨立的節點。*
 
