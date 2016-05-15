@@ -207,13 +207,71 @@ $ rados -p {poolName} ls
 $ ceph osd map {poolName} {fileName}
 ```
 
+* 下載檔案
+```
+$ rados get {fileName} {filePath} --pool={poolName}
+```
+> {filePath} 須包含檔案名稱，即下載後儲存的檔案。
+
 * 刪除檔案
 ```
 $ rados rm {fileName} --pool={poolName}
 ```
 
 ------
+##### **✱ Adding OSDs**
+
+* 建立 osd
+```
+$ ceph osd create [{uuid}]
+```
+
+* 進入 osd 建立儲存位置
+```
+$ ssh {new-osd-host}
+$ sudo mkdir /var/lib/ceph/osd/ceph-{osd-number}
+$ exit
+```
+
+* 啟動 osd
+```
+$ sudo start ceph-osd id={osd-num}
+```
+
+------
+##### **✱ Removing OSDs**
+
+* 將 osd 移出叢集
+```
+$ ceph osd out {osd-num}
+```
+> 讓系統將 osd 的檔案分布至其他 osd。
+
+* 停止 osd 服務
+```
+$ ssh {osd-host}
+$ sudo /etc/init.d/ceph stop osd.{osd-num}
+```
+
+* 將 OSD 從 CRUSH map 中移除
+```
+$ ceph osd crush remove {name}
+```
+
+* 移除驗證金鑰
+```
+$ ceph auth del osd.{osd-num}
+```
+
+* 移除 osd
+```
+$ ceph osd rm {osd-num}
+```
+
+------
 ##### **✱ Ceph Object Gateway**
+
+*Ceph RGW 可單獨為一獨立的節點。*
 
 * 安裝 ceph object gateway
 ```
@@ -226,3 +284,15 @@ ceph-deploy install --release infernalis --rgw {CEPH-GATEWAY}
 ceph-deploy rgw create {CEPH-GATEWAY}
 ```
 > 驗證 http://CEPH-GATEWAY:7480，有則代表安裝成功
+
+
+
+
+
+
+
+
+
+
+
+
