@@ -289,7 +289,7 @@ ceph-deploy rgw create {CEPH-GATEWAY}
 ```
 > 前往 http://CEPH-GATEWAY:7480，有畫面則代表安裝成功
 
-
+=====
 ##### 驗證安裝
 
 * 建立使用者
