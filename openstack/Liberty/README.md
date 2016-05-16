@@ -1,8 +1,8 @@
 # OpenStack Liberty Installation on Ubuntu 16.04 LTS
-## 架構↓↓↓
-1 controller 
-1 compute 
-1 network
+## ↓↓↓架構↓↓↓
+### 1 controller 
+### 1 compute 
+### 1 network
 
 ------
 ##### **✱ all node**
