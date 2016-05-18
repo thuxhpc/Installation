@@ -180,6 +180,7 @@ $ ceph status
 ```
 $ ceph osd ls
 $ ceph osd tree
+$ watch -n 1 ceph df
 ```
 > 可以看到每個 OSD 的 ID 以及 weight 等等資訊
 
@@ -279,13 +280,13 @@ $ ceph osd rm {osd-num}
 
 * 安裝 ceph object gateway
 ```
-ceph-deploy install --release {ceph-stable-release} --rgw {CEPH-GATEWAY}
+$ ceph-deploy install --release {ceph-stable-release} --rgw {CEPH-GATEWAY}
 ```
 > 可以直接裝在 mon 上，或直接新增一個獨立的 gateway node。
 
 * 建立 ceph object gateway instance
 ```
-ceph-deploy rgw create {CEPH-GATEWAY}
+$ ceph-deploy rgw create {CEPH-GATEWAY}
 ```
 > 前往 http://CEPH-GATEWAY:7480，有畫面則代表安裝成功
 
