@@ -4,7 +4,7 @@
 ------
 ##### **✱ All node**
 
-* 取的最新版Docker
+* 取得最新版Docker
 ```
 $ sudo apt-get install apt-transport-https
 
