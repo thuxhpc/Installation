@@ -7,14 +7,6 @@
 * 取的最新版Docker
 ```
 $ sudo apt-get install apt-transport-https
-```
-```vim
-172.24.12.105  controller
-172.24.12.106  compute01
-```
-
-* 更新並安裝套件
-```
 $ sudo apt-get update && sudo apt-get upgrade
 $ sudo apt-get install ntp openssh-server
 ```
