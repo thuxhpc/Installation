@@ -45,7 +45,7 @@ $ sudo cp nova-docker/etc/nova/rootwrap.d/docker.filters \
   /etc/nova/rootwrap.d/
 ```
  * 在Compute node 上配置Nova
- ```
+```
 $ sudo vim /etc/nova/nova-compute.conf
 ```
 ```vim
