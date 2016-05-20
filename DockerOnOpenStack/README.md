@@ -44,18 +44,32 @@ $ sudo pip list | grep nova-docker
 $ sudo cp nova-docker/etc/nova/rootwrap.d/docker.filters \
   /etc/nova/rootwrap.d/
 ```
- * 在Compute node 上配置Nova
+ * 在Compute node 上配置Nova 文件
 ```
 $ sudo vim /etc/nova/nova-compute.conf
 ```
 ```vim
 [DEFAULT]
 compute_driver = novadocker.virt.docker.DockerDriver
-# compute_driver = libvirt.LibvirtDriver
- [libvirt]
+#compute_driver = libvirt.LibvirtDriver
+[libvirt]
 virt_type=docker
-# virt_type=kvm
+#virt_type=kvm
 ```
+```
+$ sudo vim /etc/nova/nova.conf
+```
+```vim
+..........
+#firewall_driver = nova.virt.libvirt.firewall.IptablesFirewallDriver
+..........
+```
+```
+$ sudo service nova-compute restart
+
+$ sudo service docker restart
+```
+
 ------
 ##### **✱ On Controller node**
 
