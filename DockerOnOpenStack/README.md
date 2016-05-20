@@ -9,8 +9,11 @@
 $ sudo apt-get install apt-transport-https
 
 $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+
 $ sudo bash -c "echo deb https://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
+
 $ sudo apt-get update
+
 $ sudo apt-get install -y lxc-docker
 ```
 
@@ -20,21 +23,39 @@ $ sudo apt-get install -y lxc-docker
 * 修改Nova 權限
 ```
 $ sudo usermod -G docker nova
+
 $ sudo chmod 666 /var/run/docker.sock
+
 $ sudo chmod 777 /var/run/libvirt/libvirt-sock
 ```
 
 * 在Compute node 上安裝Nova-docker
 ```
 $ sudo apt-get install python-pip python-dev -y
+
 $ git clone -b stable/kilo https://github.com/stackforge/nova-docker.git
+
 $ cd nova-docker
+
 $ sudo python setup.py install
+
 $ sudo pip list | grep nova-docker
+
 $ sudo cp nova-docker/etc/nova/rootwrap.d/docker.filters \
   /etc/nova/rootwrap.d/
 ```
-
+ * 在Compute node 上配置Nova
+ ```
+$ sudo vim /etc/nova/nova-compute.conf
+```
+```vim
+[DEFAULT]
+compute_driver = novadocker.virt.docker.DockerDriver
+# compute_driver = libvirt.LibvirtDriver
+ [libvirt]
+virt_type=docker
+# virt_type=kvm
+```
 ------
 ##### **✱ On Controller node**
 
