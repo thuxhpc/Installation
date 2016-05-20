@@ -73,53 +73,33 @@ $ sudo service docker restart
 ------
 ##### **✱ On Controller node**
 
-* 切換 root 身分
+* 修改Glance 設定
 ```
-$ sudo su
+$ sudo vim /etc/glance/glance-api.conf
 ```
-> 以下皆用 root 身分操作
+```vim
+[DEFAULT]
+container_formats = ami,ari,aki,bare,ovf,docker
+```
+```
+$ sudo service glance-api restart
 
-* 建立 ssh-keygen
-```
-$ ssh-keygen
-```
-
-* 將公鑰複製到其他節點上做認證使用
-```
-$ ssh-copy-id {USERNAME}@{NODE_IP}
+$ sudo service glance-registry restart
 ```
 
-* 修改設定
+* 製造Docker 映像檔並存入Glance
 ```
-$ vim ~/.ssh/config
-```
-```
-Host {COMPUTE_HOSTNAME}
-   Hostname {COMPUTE_HOSTNAME}
-   User {USERNAME}
-```
+$ docker pull {IMAGE_NAME}
 
-------
-* 下載 Script
-```
-# wget https://www.dropbox.com/s/y1402bdty18y9rx/kilo-20160313.tar
-```
+$ mkdir file
 
-* 解壓縮並進入資料夾
-```
-# tar xvf kilo-20160313.tar && cd kilo-20160313
-```
+$ tar cf file.tar file
 
-* 開始安裝
-```
-# sh Setup.sh
-```
-> 安裝後需輸入節點IP，設定各項服務密碼，以及 compute node 的對外與橋接網卡名稱
+$ tar --delete -f file.tar file
 
-------
+$ docker save {IMAGE_NAME} > file.tar
 
-* 驗證
+$ glance image-create --file file.tar --container-format docker --disk-format raw --name {IMAGE_NAME}
+
+$ nova boot --flavor {FLAVOR_TYPE} --image {IMAGE_NAME} {INSTANCE_NAME}
 ```
-http://{CONTROLLER_IP}/horizon/
-```
-> 前往網站驗證各項服務
