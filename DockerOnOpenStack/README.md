@@ -2,7 +2,7 @@
 ## Installing Docker for OpenStack
 
 ------
-##### **✱ all node**
+##### **✱ All node**
 
 * 取的最新版Docker
 ```
@@ -16,16 +16,22 @@ $ sudo apt-get install -y lxc-docker
 ------
 ##### **✱ On Compute node**
 
-* 在節點上新增一個帳戶
+* 修改Nova 權限
 ```
-$ sudo useradd -d /home/{USERNAME} -m {USERNAME}
-$ sudo passwd {USERNAME}
+$ sudo usermod -G docker nova
+$ sudo chmod 666 /var/run/docker.sock
+$ sudo chmod 777 /var/run/libvirt/libvirt-sock
 ```
 
-* 為此用戶增加 root 權限
+* 在Compute node 上安裝Nova-docker
 ```
-$ echo "{USERNAME} ALL = (root) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/{USERNAME}
-$ sudo chmod 0440 /etc/sudoers.d/{USERNAME}
+$ sudo apt-get install python-pip python-dev -y
+$ git clone -b stable/kilo https://github.com/stackforge/nova-docker.git
+$ cd nova-docker
+$ sudo python setup.py install
+$ sudo pip list | grep nova-docker
+$ sudo cp nova-docker/etc/nova/rootwrap.d/docker.filters \
+  /etc/nova/rootwrap.d/
 ```
 
 ------
