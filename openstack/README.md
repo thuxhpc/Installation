@@ -37,6 +37,12 @@ $ sudo chmod 0440 /etc/sudoers.d/{USERNAME}
 ------
 ##### **✱ On Controller node**
 
+* 切換 root 身分
+```
+$ sudo su
+```
+> 以下皆用 root 身分操作
+
 * 建立 ssh-keygen
 ```
 $ ssh-keygen
@@ -58,12 +64,6 @@ Host {COMPUTE_HOSTNAME}
 ```
 
 ------
-* 切換 root 身分
-```
-$ sudo su
-```
-> 以下皆用 root 身分操作
-
 * 下載 Script
 ```
 # wget https://www.dropbox.com/s/y1402bdty18y9rx/kilo-20160313.tar

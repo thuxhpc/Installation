@@ -60,7 +60,7 @@ vim hbase/conf/hbase-site.xml
 </property>
 <property>
   <name>hbase.zookeeper.property.dataDir</name>
-  <value>/opt/hadoop/zookeeper</value>
+  <value>/home/hduser/zookeeper</value>
 </property>
 <property>
   <name>hbase.client.scanner.caching</name>
