@@ -1,4 +1,4 @@
-    # OpenStack Liberty Installation on Ubuntu 14.04 LTS
+# OpenStack Liberty Installation on Ubuntu 14.04 LTS
 
 ## ↓↓↓ Neutron 架構 ↓↓↓
 ##### ✱  1 controller node 
