@@ -17,8 +17,8 @@
 ###### sudo apt-get -y install elasticsearch
 
 ###### sudo vim/etc/elasticsearch/elasticsearch.yml 
-###### network.host	: IP Address
-###### http.port		: 9200
+network.host	: IP Address
+http.port		: 9200
 
 ###### sudo service elasticsearch restart
 
@@ -32,9 +32,9 @@
 ###### tar xvf kibana-*.tar.gz
 
 ###### sudo vim ~/kibana-4*/config/kibana.yml
-###### server.port		: 5601
-###### server.host		: "IP Address"
-###### elasticsearch.url	: http://IP Address:9200
+server.port		: 5601
+server.host		: "IP Address"
+elasticsearch.url	: http://IP Address:9200
 
 ###### sudo mkdir -p /opt/kibana
 
@@ -59,23 +59,23 @@
 ###### sudo vim /etc/nginx/sites-available/default
 
 ###### 加上下面的程式碼及IP Address
-###### server {
-######     listen 80;
+server {
+    listen 80;
 
-######     server_name <your ip here>;
+    server_name <your ip here>;
 
-######     auth_basic "Restricted Access";
-######     auth_basic_user_file /etc/nginx/htpasswd.users;
+    auth_basic "Restricted Access";
+    auth_basic_user_file /etc/nginx/htpasswd.users;
 
-######     location / {
-######        proxy_pass http://<your ip here>:5601;
-######         proxy_http_version 1.1;
-######         proxy_set_header Upgrade $http_upgrade;
-######         proxy_set_header Connection 'upgrade';
-######         proxy_set_header Host $host;
-######         proxy_cache_bypass $http_upgrade;        
-######     }
-###### }
+    location / {
+       proxy_pass http://<your ip here>:5601;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;        
+    }
+}
 
 ###### sudo service nginx restart
 
