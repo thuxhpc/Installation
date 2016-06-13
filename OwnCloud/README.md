@@ -10,4 +10,8 @@ FreeNAS環境已安裝完成<br><br>
 之後點擊Edit Jail<br>
 將ip address改成外網ip address<br>
 重新啟動OwnCloud<br>
-
+在FreeNAS網頁端選擇Jails > Add Storage<br>
+輸入資料來源(owncloud_1)以及目的路徑(/media)<br>
+登入Plugins > owncloud後點擊here連接<br>
+輸入FreeNAS帳號以及密碼 , 帳號：root; 密碼：freenas<br>
+OwnCloud首頁可看到有兩個預設資料夾 “Documents” 以及 “Photos”
