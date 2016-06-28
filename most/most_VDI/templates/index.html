@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../favicon.ico">
+    <title>Dashboard Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- switch -->
+    <link href="/css/switch.css" rel="stylesheet">
+    <link href="/css/tab.css" rel="stylesheet">
+
+    <!-- alert -->
+    <link rel="stylesheet" href="/css/alertify.core.css" />
+    <link rel="stylesheet" href="/css/alertify.default.css" id="toggleCSS" />
+    <script src="/js/alertify.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <script src="/js/jquery-2.2.3.min.js"></script>
+    <script src="/js/jquery.dataTables.min.js"></script>
+
+    <!-- Custom styles for this template -->
+    <link href="/css/dashboard.css" rel="stylesheet">
+    <link href="/css/setting.css" rel="stylesheet">
+    <link href="/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    
+
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="/js/ie-emulation-modes-warning.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+    <script type="text/javascript">
+    $(document).ready(function() {
+        // setInterval(status_update, 3000);
+
+
+        
+   
+        setInterval(function(){
+            $.ajax({    
+               url: '/vmlist',
+                  success: function(data) {
+                  $('#tab1').html(data);
+                  }
+            });
+        }, 3000)
+
+
+       
+      
+        $('.sidebar_href').click(function(e) {
+            var tab = $(this).attr('data-tab');
+
+           $(".active").removeClass("active");
+           $(this).closest("li").addClass("active");
+
+            $(".tab_content").css({display: "none"});
+            $("#"+tab).css({display: ""});
+        });
+
+    });
+    </script>
+</head>
+
+<body>
+    {% include 'module/nave.html' %}
+    <div class="container-fluid">
+        <div class="row">
+            {% include 'module/sidebar.html' %} 
+            <div class="tab_container" >
+            <div id="tab1" class="tab_content">
+            {% include 'page/vmlist.html' %} 
+            </div>
+            <div id="tab2" class="tab_content" style="display:none" >
+            {% include 'page/flavorlist.html' %}
+            </div>
+            </div>
+        </div>
+    </div>>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="/js/vendor/holder.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+
+</html>

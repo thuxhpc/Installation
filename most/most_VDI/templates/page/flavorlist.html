@@ -1,0 +1,30 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header">Dashboard</h1>
+    <h2 class="sub-header">資源定義列表</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>vcpus</th>
+                    <th>Ram</th>
+                    <th>Disk</th>
+                    <th>rxtx_facto</th>
+                </tr>
+            </thead>
+            <tbody id='tbody_flavorlist'>
+                {% for i in flavors %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td class='flavornamecell'>{{ i.name }}</td>
+                    <td>{{ i.vcpus }}</td>
+                    <td>{{ i.ram }}</td>
+                    <td>{{ i.disk }}</td>
+                    <td>{{ i.rxtx_facto }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
