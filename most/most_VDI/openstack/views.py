@@ -103,11 +103,21 @@ def index( request ):
     # return render_to_response( 'index.html',
     #         {"mytitle":"customize_title"})
 
-def  deleteVM(request ,vm_id):
+def deleteVM(request ,vm_id):
     global nova
     
     vm = nova.servers.get(vm_id)
     nova.servers.delete(vm)
+
+    return render_to_response('queryVM.html',locals())
+
+def addVM(request ,vm_name):
+    global nova
+    
+    image_id =  nova.images.list()[1].id
+    image =  nova.images.get(image_id)
+    flavor = nova.flavors.list()[0]
+    nova.servers.create(vm_name,image,flavor)
 
     return render_to_response('queryVM.html',locals())
 

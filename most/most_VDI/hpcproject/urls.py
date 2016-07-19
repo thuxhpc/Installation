@@ -15,7 +15,7 @@ Including another URLconf
 from django.views.generic import TemplateView
 from django.conf.urls import include, url
 from django.contrib import admin
-from openstack.views import queryVM, rebootVM ,startVM, stopVM ,statusVM ,index, getVNC ,queryFlavors ,deleteVM ,getVMlist
+from openstack.views import queryVM, rebootVM ,startVM, stopVM ,statusVM ,index, getVNC ,queryFlavors ,deleteVM ,getVMlist ,addVM
 
 urlpatterns = [
     # url(r'^YukiIloveU/$', love),
@@ -30,6 +30,7 @@ urlpatterns = [
     url(r'^stopVM/(.*)/$', stopVM),
     url(r'^statusVM/(.*)/$', statusVM),
     url(r'^deleteVM/(.*)/$', deleteVM),
+    url(r'^addVM/(.*)/$', addVM),
     url(r'^getVNC/(.*)/$', getVNC),
     url(r'^queryFlavors/$', queryFlavors),
 

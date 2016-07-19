@@ -8,8 +8,8 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../favicon.ico">
-    <title>Dashboard Template for Bootstrap</title>
+    <link rel="icon" href="/images/favicon.ico">
+    <title>HPC VDI</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -19,9 +19,14 @@
     <link href="/css/tab.css" rel="stylesheet">
 
     <!-- alert -->
-    <link rel="stylesheet" href="/css/alertify.core.css" />
-    <link rel="stylesheet" href="/css/alertify.default.css" id="toggleCSS" />
+
+<link rel="stylesheet" href="css/alertify.rtl.css">
+<link rel="stylesheet" href="css/themes/default.rtl.css">
+<link rel="stylesheet" href="css/themes/semantic.rtl.css">
+<link rel="stylesheet" href="css/alertify.css">
+
     <script src="/js/alertify.min.js"></script>
+    <script src="/js/alertify.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <link href="/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
     <script src="/js/jquery-2.2.3.min.js"></script>
@@ -48,6 +53,55 @@
     $(document).ready(function() {
         // setInterval(status_update, 3000);
 
+alertify.defaults = {
+        // dialogs defaults
+        modal:true,
+        basic:false,
+        frameless:false,
+        movable:true,
+        moveBounded:false,
+        resizable:true,
+        closable:true,
+        closableByDimmer:true,
+        maximizable:true,
+        startMaximized:false,
+        pinnable:true,
+        pinned:true,
+        padding: true,
+        overflow:true,
+        maintainFocus:true,
+        transition:'pulse',
+        autoReset:true,
+
+        // notifier defaults
+        notifier:{
+            // auto-dismiss wait time (in seconds)  
+            delay:5,
+            // default position
+            position:'bottom-left'
+        },
+
+        // language resources 
+        glossary:{
+            // dialogs default title
+            title:'Alert !',
+            // ok button text
+            ok: 'OK',
+            // cancel button text
+            cancel: 'Cancel'            
+        },
+
+        // theme settings
+        theme:{
+            // class name attached to prompt dialog input textbox.
+            input:'ajs-input',
+            // class name attached to ok button
+            ok:'ajs-ok',
+            // class name attached to cancel button 
+            cancel:'ajs-cancel'
+        }
+    };
+
 
         
    
@@ -58,7 +112,7 @@
                   $('#tab1').html(data);
                   }
             });
-        }, 3000)
+        }, 8000)
 
 
        
@@ -100,6 +154,10 @@
     <script src="/js/vendor/holder.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- <link rel="stylesheet" href="css/themes/bootstrap.css"> -->
+
+    <!-- <link rel="stylesheet" href="css/alertify.css"> -->
+
 </body>
 
 </html>

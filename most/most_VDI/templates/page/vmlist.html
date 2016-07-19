@@ -1,19 +1,17 @@
-    <script type="text/javascript">
-    $(document).ready(function() {
+<script type="text/javascript">
+$(document).ready(function() {
 
-        $('.vnc_href').click(function(e) {
-            // alert($(this).attr('data-name'));
-            var thisobj = $(this);
-            var vm_name = thisobj.attr('data-name');
-            var power = $("#"+vm_name).attr('data-power');
+    $('.vnc_href').click(function(e) {
+        // alert($(this).attr('data-name'));
+        var thisobj = $(this);
+        var vm_name = thisobj.attr('data-name');
+        var power = $("#" + vm_name).attr('data-power');
 
-            if(power=="off")
-            {
-                alertify.alert("請先確認機器是否開機");
+        if (power == "off") {
+            alertify.alert("請先確認機器是否開機");
 
-            }
-            else{
-                 $.ajax({
+        } else {
+            $.ajax({
                 url: '/getVNC/' + $(this).attr('data-name'),
                 type: 'GET',
                 error: function(xhr) {
@@ -25,129 +23,125 @@
 
                 }
             });
-            }
-           
-
-        });
-   
-    function reset () {
-            $("#toggleCSS").attr("href", "/css/alertify.default.css");
-            alertify.set({
-                labels : {
-                    ok     : "OK",
-                    cancel : "Cancel"
-                },
-                delay : 5000,
-                buttonReverse : false,
-                buttonFocus   : "ok"
-            });
         }
 
-      $('.delete').click(function(e) {
-             
-            reset();
-         
 
-            var thisobj = $(this)
-            alertify.confirm('請問是否要刪除 <BR> VM : '+thisobj.attr('data-name'), function (e ) {
-               if (e) {
-                // 按下OK
-                 $.ajax({
-                url: '/deleteVM/' + thisobj.attr('data-id'),
+    });
+
+    function reset() {
+        $("#toggleCSS").attr("href", "/css/alertify.default.css");
+        alertify.set({
+            labels: {
+                ok: "OK",
+                cancel: "Cancel"
+            },
+            delay: 5000,
+            buttonReverse: false,
+            buttonFocus: "ok"
+        });
+    }
+
+
+    $('.delete').click(function(e) {
+        // reset();
+        var thisobj = $(this)
+        alertify.confirm("請問是否要刪除 <BR> VM : " + thisobj.attr('data-name'),
+            function() {
+                // alertify.success('Ok');
+                $.ajax({
+                    url: '/deleteVM/' + thisobj.attr('data-id'),
+                    type: 'GET',
+                    error: function(xhr) {
+                        alertify.alert("刪除虛擬機失敗");
+
+                    },
+                    success: function(response) {
+                        // alert(response);
+                        alertify.alert("已刪除虛擬機: " + thisobj.attr('data-name'));
+                        thisobj.parent().parent().remove();
+                    }
+                });
+            },
+            function() {
+                // alertify.error('Cancel');
+            });
+
+    });
+
+
+
+    $('.add').click(function(e) {
+        alertify.prompt('<h3><b>請輸入虛擬機名稱</b></h3>', '', function(evt, value) {
+            // alertify.success('You entered: ' + value)
+            $.ajax({
+                url: '/addVM/' + value,
                 type: 'GET',
                 error: function(xhr) {
-                   alertify.alert("刪除虛擬機失敗");
+                    alertify.alert("新增虛擬機失敗");
 
                 },
                 success: function(response) {
                     // alert(response);
-                    alertify.alert("已刪除虛擬機: "+thisobj.attr('data-name'));
-                    thisobj.parent().parent().remove();
-                }
-                });    
- 
-                } else {
-                 
+                    alertify.alert("新增虛擬機: " + value);
+
                 }
             });
-          
-        });
 
-        $('.add').click(function(e) {
-             
-            reset();
-            var name=$(this).attr('data-name')
-            var id=$(this).attr('data-id')
-            alertify.confirm('請問是否要刪除 <BR> VM : '+name, function (e ) {
-               if (e) {
-                // 按下OK
-                 $.ajax({
-                url: '/deleteVM/' + id,
-                type: 'GET',
-                error: function(xhr) {
-                   alertify.alert("刪除虛擬機失敗");
-                },
-                success: function(response) {
-                    // alert(response);
-                    alertify.alert("已刪除虛擬機: "+name);
-                }
-                });    
- 
-                } else {
-                    alertify.alert("Successful AJAX after Cancel");
-                }
+
+
+        }, function() {
+            alertify.error('Cancel')
+        }).setHeader('<em> 新增虛擬機 </em>');;
+    });
+
+    //force focusing password box
+    // alertify.genericDialog($('#loginForm')[0]).set('selector', 'input[type="password"]');
+    $('.toggle').click(function(e) {
+        if ($(this).attr('data-power') == 'off') {
+            $(this).attr('data-power', 'on');
+            $.ajax({
+                url: "/startVM/" + $(this).attr('id'),
+
+            }).done(function() {
+
+
+
             });
-          
-        });
+        } else {
+            $(this).attr('data-power', 'off');
+            $.ajax({
+                url: "/stopVM/" + $(this).attr('id'),
 
- $('.toggle').click(function(e) {
-            if ($(this).attr('data-power') == 'off') {
-                $(this).attr('data-power', 'on');
-                $.ajax({
-                    url: "/startVM/" + $(this).attr('id'),
+            }).done(function() {
 
-                }).done(function() {
-
-
-
-                });
-            } else {
-                $(this).attr('data-power', 'off');
-                $.ajax({
-                    url: "/stopVM/" + $(this).attr('id'),
-
-                }).done(function() {
-
-                });
-            }
-        });
+            });
+        }
+    });
 
 
-        $('.toggle').click(function(e) {
-            var toggle = this;
+    $('.toggle').click(function(e) {
+        var toggle = this;
 
-            e.preventDefault();
+        e.preventDefault();
 
-            $(toggle).toggleClass('toggle--on')
-                .toggleClass('toggle--off')
-                .addClass('toggle--moving');
+        $(toggle).toggleClass('toggle--on')
+            .toggleClass('toggle--off')
+            .addClass('toggle--moving');
 
-            setTimeout(function() {
-                $(toggle).removeClass('toggle--moving');
-            }, 200)
+        setTimeout(function() {
+            $(toggle).removeClass('toggle--moving');
+        }, 200)
 
-            $(this).prop( "disabled", true );
-        });
+        $(this).prop("disabled", true);
+    });
 
 
- });
-
-      
-        </script>
+});
+</script>
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h1 class="page-header">Dashboard</h1>
-    <h2 class="sub-header">虛擬機列表</h2> <h5>列表每5秒更新一次，請勿重複點擊</h5>
-
+    <h2 class="sub-header">虛擬機列表</h2>
+    <h5>列表每10秒更新一次，請勿重複點擊</h5>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -163,29 +157,28 @@
                 {% for i in s %}
                 <tr>
                     <td>{{ forloop.counter }}</td>
-                    <td class='vmnameCell'style="vertical-align: middle;">{{ i.name }}</td>
+                    <td class='vmnameCell' style="vertical-align: middle;">{{ i.name }}</td>
                     {% if i.status == 'SHUTOFF' %}
-                    <td class="status_{{i.name}} status"><img src="/images/ic_mood_bad_black_24dp_2x.png" ></td>
+                    <td class="status_{{i.name}} status"><img src="/images/ic_mood_bad_black_24dp_2x.png"></td>
                     <td>
                         <a href="#" id="{{i.name}}" class="toggle toggle--off" data-power="off"></a>
                     </td>
                     {% else %}
-                    <td class="status_{{i.name}} status"><img src="/images/ic_mood_black_24dp_2x.png" ></td>
+                    <td class="status_{{i.name}} status"><img src="/images/ic_mood_black_24dp_2x.png"></td>
                     <td>
                         <a href="#" id="{{i.name}}" class="toggle toggle--on" data-power="on"></a>
                     </td>
                     {% endif %}
                     <td>
-                        <a href="#" class="vnc_href" data-name="{{ i.name }}"> <img src="/images/ic_computer_black_24dp_2x.png" ></a>
+                        <a href="#" class="vnc_href" data-name="{{ i.name }}"> <img src="/images/ic_computer_black_24dp_2x.png"></a>
                     </td>
-
                     <td>
-                        <a href="#" class="delete" data-name="{{ i.name }}"" data-id="{{ i.id }}"> <img src="/images/ic_delete_black_24dp_2x.png" ></a>
+                        <a href="#" class="delete" data-name="{{ i.name }}" " data-id="{{ i.id }} "> <img src="/images/ic_delete_black_24dp_2x.png " ></a>
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <a href="#" class="add"> <img src="/images/ic_add_to_queue_black_24dp_2x.png" ></a>
+        <a href='#' class='add'> <img src='/images/ic_add_to_queue_black_24dp_2x.png' ></a>
     </div>
 </div>
